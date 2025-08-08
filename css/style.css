@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Agrega efecto de desplazamiento suave a toda la página */
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+}
+
+.header{
+        height: 100vh;
+        /* 02 */
+        background-image: linear-gradient(to left, hsla(231, 97%, 61%, 0.548) 0%, hsla(218, 81%, 83%, 0.514) 100%), url(../img/banner.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative; /* Agregar posición relativa al contenedor */
+        overflow: hidden; /* Evitar que el contenido se desborde */
+}
+
+@keyframes moverDerecha{
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moverIzquierda{
+    0%{
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes arriba{
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.contenedor{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para el contenedor del navbar */
+.navbar-container {
+    background: #fff;
+    display: flex; /* Usar flexbox para alinear elementos */
+    justify-content: space-between; /* Distribuir los elementos horizontalmente */
+    align-items: center; /* Centrar verticalmente los elementos */
+    margin: 0 auto; /* Centrar el contenedor en la página */
+    width: 100%; /* Ajustar el ancho al 100% del viewport */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Sombra */
+    
+}
+
+.card {
+    display: flex;
+    margin-bottom: 100px;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    border: 1px solid #ccc;
+    padding: 8px 8px 18px 15px;
+    margin-top: 100px; /* Ajusta el margen superior de la tarjeta para bajarla */
+    border-radius: 8px;
+    background-color: #fff;
+    color: #fff; /* Color de texto predeterminado para el contenido de la tarjeta */
+    font-size: 16px; /* Tamaño de fuente predeterminado para el contenido de la tarjeta */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Sombra */
+    animation: moverDerecha 2s ease-in;
+}
+
+.boton {
+    display: block; /* Hacer que el botón sea un bloque para que se muestre debajo de la tarjeta */
+    margin-top: 20px; /* Ajustar el margen superior según sea necesario */
+    padding: 10px 20px; /* Añadir relleno al botón */
+    text-decoration: none;
+    background-color: #00B5EF; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 1);
+    border: none; /* Quitar el borde del botón */
+    border-radius: 5px; /* Agregar bordes redondeados al botón */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    opacity: 0; /* Inicialmente, el botón estará completamente transparente */
+    transition: opacity 6s ease; /* Transición suave de la propiedad opacity durante 0.5 segundos */
+}
+
+.boton.visible {
+    opacity: 1; /* Cuando la clase 'visible' se añade al botón, se vuelve completamente visible */
+}
+
+.boton:hover{
+    background: #000;
+    color: #00B5EF;
+}
+
+img{
+    width: 110px;
+    height: 80px;
+}
+
+.user-info {
+    text-align: center; /* Alinea el texto al centro */
+}
+
+.message-content {
+    margin-top: 5px;
+    font-size: 20px;
+    color: #000; /* Cambia el color del contenido del mensaje según tus preferencias */
+}
+
+.social-media{
+    width: 100%;
+    margin-top: 10px; /* Añade un margen superior para separar los conjuntos de iconos */
+    display: flex;
+    justify-content: center;
+}
+
+.social-media-divider {
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    margin: 20px -2px; /* Espaciado entre los grupos de iconos y la línea */
+}
+
+.social-media a:not(:last-child) {
+    margin-right: 10px; /* Añade margen entre los iconos, excepto para el último */
+}
+
+.social-media-icon{
+    display: inline-block;
+    margin-left: 20px;
+    margin: 0 5px; /* Añade un pequeño margen entre los iconos */
+    width: 60px;
+    height: 60px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    text-align: center;
+    color: #000;
+    text-shadow: 1px 1px 1px black;
+}
+
+.social-media-icon i{
+    font-size: 24px;
+    line-height: 60px;
+}
+
+.social-media-icon:hover{
+    background: rgb(0, 181, 239);
+}
+
+.social-media img{
+    width: 40%;
+    height: 40%;
+    margin-top: 18px;
+}
+
+.gallery{
+    background: #fff;
+    text-align: center;
+}
+
+.contenedor {
+    padding: 30px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch; /* Habilita el desplazamiento suave en dispositivos iOS */
+    scroll-behavior: smooth; /* Añade un desplazamiento suave */
+    position: relative;
+}
+
+.boton2 {
+    margin-top: -50px; /* Ajustar el margen superior del botón */
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px; /* Ajusta el relleno del botón */
+    text-decoration: none;
+    background-color: #00B5EF; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 1);
+    font-weight: bold;
+    font-size: 15px;
+    border: none; /* Quitar el borde del botón */
+    border-radius: 5px; /* Agregar bordes redondeados al botón */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */      
+}
+
+.boton2:hover{
+    background-color: #fff;
+    color: #00B5EF;
+}
+
+
+.boton2 span {
+    margin-left: 5px; /* Espacio entre el texto del botón y la flecha */
+    margin-top: -5px; /* Mover la flecha hacia arriba */
+    font-size: 25px; /* Ajusta el tamaño de la flecha */
+}
+
+.contenedor-galeria{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.img-galeria{
+    width: 50%;
+    height: auto; /* Mantén la proporción */
+    display: block;
+    margin-bottom: 15px;
+    margin: 0 auto 0.5em; /* Centra horizontalmente la imagen y ajusta el margen inferior */
+}
+
+.slider {
+    width: 75vw;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex; /* Utiliza un contenedor flexible para las diapositivas */
+    -webkit-overflow-scrolling: touch; /* Desplazamiento suave en dispositivos iOS */
+}
+
+.slide {
+    display: inline-block;
+    width: 200px; /* Ajusta el ancho según tus necesidades */
+    height: auto; /* Ajusta la altura según tus necesidades */
+}
+
+.slider .slide-track {
+    display: flex;
+    width: fit-content; /* Ajusta el ancho al contenido */
+    flex: 0 0 auto; /* Evita que las diapositivas se expandan para ajustarse al contenedor */
+    text-align: center; /* Centra las imágenes */
+    animation: scroll 0s linear infinite; /* Sigue siendo la misma animación */
+}
+
+.slider .slide {
+    width: 200px;
+    flex-shrink: 0; /* Evita que los slides se contraigan */
+}
+
+.slider .slide img {
+    width: 100%;
+}
+
+.video-container {
+    position: relative;
+    width: 70%;
+    height: 0;
+    margin: 0 auto; /* Para centrar horizontalmente */
+    padding-bottom: 39.375%;
+    padding-left: 15%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 24px rgba(0, 181, 239, 0.8); /* Más sombra */
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  h1{
+    color: #000;
+    padding-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    }
+
+  h2{
+    color: #000;
+    padding-top: 30px;
+    margin-bottom: 60px;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+  }
+
+ 
+  .textos-mapa-formulario{
+    color: #fff;
+  }
+
+
+  #mapa-formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra verticalmente */
+    padding: 20px; /* Añade un poco de espacio alrededor del mapa y del formulario */
+    background-color: #00B5EF;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mapa-container,
+.formulario-container {
+    flex: 1;
+    margin: 0 10px; /* Ajusta el margen lateral */
+    display: flex;
+    flex-direction: column;
+}
+
+.mapa-container iframe,
+.formulario {
+    width: 100%; /* Ajusta el ancho al 100% */
+    max-width: 600px; /* Establece un ancho máximo para evitar que se extiendan demasiado en pantallas grandes */
+    flex: 1; /* Hace que ambos contenedores ocupen la misma altura */
+}
+
+.formulario {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Estilos adicionales para los campos del formulario y el botón de enviar */
+
+
+.formulario label,
+.formulario input,
+.formulario textarea {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.formulario button {
+    background-color: #00B5EF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.formulario button:hover{
+    background-color: #000;
+    color: #00B5EF;
+}
+
+
+.footer {
+    background-color: #000;
+    padding: 20px 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    color: #00B5EF;
+    font-weight: bold;
+}
+
+
+
+/* Estilos para tabletas */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .slide-track {
+        margin: 0 20px; /* Ajusta los márgenes */
+    }
+}
+
+/* Media query para dispositivos móviles */
+
+@media screen and (max-width: 900px){
+    
+    .img-galeria{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .slide-track {
+        margin: 0 10px; /* Agrega márgenes a los lados */
+    }
+
+    .social-media{
+        justify-content: space-evenly;
+    }
+
+    .social-media-icon{
+        margin-left: 0;
+    }
+
+    .video-container{
+        width: 90%; /* Ajustar el ancho para dispositivos móviles medianos */
+        padding-bottom: 56.25%; /* Proporción 16:9 */
+        box-shadow: 0 12px 24px rgba(0, 181, 239, 0.8); /* Más sombra */
+    }
+    
+}
+
+    @media screen and (max-width: 500px) {
+
+    .card {
+      margin-top: 30px; /* Ajusta el margen superior de la tarjeta para subirla un poco */
+    }
+
+    #mapa iframe {
+    height: 600px; /* Ajusta la altura del iframe del mapa para que sea más largo en dispositivos móviles */
+  }
+  }
+  
+
+    @media screen and (max-width: 600px){
+
+        .video-container {
+        width: 90%; /* Ajustar el ancho para dispositivos móviles más pequeños */
+        padding-bottom: 56.25%; /* Proporción 16:9 */
+        box-shadow: 0 10px 20px rgba(0, 181, 239, 0.8); /* Más sombra */
+    }
+    
+        .container {
+         max-width: 100%; /* Ancho máximo del contenedor al 100% para dispositivos móviles */
+    }
+
+}
+
+    @media screen and (max-width: 768px) {
+     
+
+    .container {
+        flex-direction: column;
+    }
+
+    .slide-track {
+        margin: 0 10px; /* Agrega márgenes a los lados */
+    }
+
+    .mapa-container,
+    .formulario-container {
+        text-align: center; /* Centra el contenido */
+        margin-left: auto; /* Alinea a la derecha */
+        margin-right: auto; /* Alinea a la izquierda */
+        flex: none;
+        width: 100%;
+    }
+
+    .mapa-container iframe,
+    .formulario-container form {
+        max-width: 100%; /* Establece el ancho máximo */
+    }
+
+    .formulario-container label {
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+    
+    .footer-container {
+        text-align: center; /* Centra el texto del footer en dispositivos móviles */
+        padding: 0 10px; /* Añade un poco de espacio horizontal */
+    }
+
+    }
+
+  
